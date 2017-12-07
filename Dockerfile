@@ -12,7 +12,6 @@ RUN groupadd --gid ${GUID} logstash && \
     useradd --uid ${UUID} --gid ${GUID} \
       --home-dir /usr/share/logstash --no-create-home \
       logstash
-USER logstash
 
 RUN yum update -y \
   && yum install -y java-1.8.0-openjdk openssl wget \
@@ -36,6 +35,8 @@ ADD bin/docker-entrypoint /usr/local/bin/
 RUN chmod 0755 /usr/local/bin/docker-entrypoint
 
 ADD env2yaml/env2yaml /usr/local/bin/
+
+USER logstash
 
 EXPOSE 9100
 
