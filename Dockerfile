@@ -41,6 +41,7 @@ RUN cd /usr/share/logstash && \
 		logstash-plugin install logstash-filter-translate && \
 		logstash-plugin install logstash-filter-json_encode && \
 		logstash-plugin install logstash-filter-prune && \
+		logstash-plugin install logstash-output-syslog && \
 		logstash-plugin install x-pack
 
 EXPOSE 9100 9600 5044
